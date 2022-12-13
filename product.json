@@ -1,0 +1,51 @@
+[
+  {
+    "productName": "Anime Book Mark",
+    "id": "1",
+    "price": "$1",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/1.jpg"
+  },
+  {
+    "productName": "Sunset Poster Painting",
+    "id": "2",
+    "price": "$2",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/2.jpg"
+  },
+  {
+    "productName": "Anime Pencil Sketch",
+    "id": "3",
+    "price": "$1",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/3.jpg"
+  },
+  {
+    "productName": "Simple Girl Sketch Using Pen ",
+    "id": "4",
+    "price": "$4",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/4.jpg"
+  },
+  {
+    "productName": "Anime Pencil Sketch",
+    "id": "3",
+    "price": "$1",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/5.jpg"
+  },
+  {
+    "productName": "Simple Girl Sketch Using Pen ",
+    "id": "4",
+    "price": "$4",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/6.jpg"
+  },
+  {
+    "productName": "Simple Girl Sketch Using Pen ",
+    "id": "4",
+    "price": "$4",
+    "description": "Beautifull Anime Poster Color Book Mark",
+    "img": "/static/images/7.jpg"
+  }
+]
