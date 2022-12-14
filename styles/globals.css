@@ -80,3 +80,11 @@ a {
     background: black;
   }
 }
+
+.productCard {
+  maxwidth: 345;
+  flex: "0 1 calc(25% - 3em)";
+  boxsizing: "border-box";
+  margin: "2rem 1em";
+  boxshadow: "10";
+}

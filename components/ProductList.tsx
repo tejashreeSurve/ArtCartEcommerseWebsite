@@ -7,7 +7,14 @@ export interface ProductListProps {
 }
 export const ProductList = ({ items }: ProductListProps) => {
   return (
-    <Grid container spacing={4} sx={{ margin: "2rem" }}>
+    <Grid
+      container
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
+    >
       {items?.map((item, index) => {
         return (
           <ProductCard

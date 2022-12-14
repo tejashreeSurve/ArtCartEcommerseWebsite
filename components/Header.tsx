@@ -10,7 +10,7 @@ import {
   Link,
 } from "@mui/material";
 import { Button } from "./Button";
-import { BsPaintBucket, BsPerson, BsCart4, BsHeartFill } from "react-icons/bs";
+import { BsPerson, BsCart4, BsHeartFill } from "react-icons/bs";
 
 export const Header = () => {
   return (
