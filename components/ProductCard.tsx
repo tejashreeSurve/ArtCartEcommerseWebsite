@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardMedia,
   CardContent,
   Typography,
   CardActions,
-  Button,
   CardActionArea,
+  IconButton,
 } from "@mui/material";
+import { Button } from "./Button";
+import { BsCart4, BsHeartFill } from "react-icons/bs";
 
 export interface ProductCardProps {
   productName: string;
@@ -24,11 +26,25 @@ export const ProductCard = ({
   price,
   img,
 }: ProductCardProps) => {
+  const [state, setState] = useState({
+    raised: false,
+    shadow: 1,
+  });
   return (
     <Card
-      sx={{ maxWidth: 345 }}
-      // className="animate__animated animate__fadeIn"
-      // raised
+      sx={{
+        maxwidth: 345,
+        flex: "0 1 calc(25% - 3em)",
+        boxsizing: "border-box",
+        margin: "2rem 1em",
+        boxshadow: "10",
+        transition: state.raised
+          ? "scale3d(1.05, 1.05, 1)"
+          : "transform 0.15s ease-in-out",
+      }}
+      onMouseOver={() => setState({ raised: true, shadow: 3 })}
+      onMouseOut={() => setState({ raised: false, shadow: 1 })}
+      raised={state.raised}
     >
       <CardActionArea>
         <CardMedia
@@ -37,7 +53,7 @@ export const ProductCard = ({
           image={img}
           height="300"
         />
-        <CardContent>
+        <CardContent sx={{ display: "flex", flexDirection: "column" }}>
           <Typography gutterBottom variant="h5" component="div">
             {productName}
           </Typography>
@@ -47,9 +63,23 @@ export const ProductCard = ({
           <Typography variant="h4">Price : {price}</Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small">Add to cart</Button>
-        <Button size="small">Add to wishlist</Button>
+      <CardActions
+        sx={{
+          display: "flex",
+          justifyContent: "end",
+        }}
+      >
+        <IconButton
+          size="large"
+          edge="start"
+          aria-label="menu"
+          sx={{ mr: 2, color: "black", marginTop: "auto" }}
+        >
+          <BsCart4 />
+        </IconButton>
+        <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2 }}>
+          <BsHeartFill />
+        </IconButton>
       </CardActions>
     </Card>
   );

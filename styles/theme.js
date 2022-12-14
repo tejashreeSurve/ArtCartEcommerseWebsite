@@ -14,7 +14,7 @@ export const palette = {
   },
   secondary: {
     main: "#FFFFFF",
-    light: "#B79494",
+    light: "#f0ede6",
     tint: "#DDD7D7",
     contrastText: "#ffffff",
   },
@@ -71,9 +71,28 @@ export const theme = createTheme({
     //     body1: {
     //       fontSize: "14px",
     //     },
+    h1: {
+      fontWeight: "500",
+      fontFamily: "fantasy",
+      background: "#f0ede6",
+    },
+    h2: {
+      fontFamily: "Stint Ultra Expanded",
+      fontWeight: "800",
+    },
     body2: {
       fontSize: "20px",
       fontFamily: "Stint Ultra Condensed",
+    },
+    subtitle2: {
+      fontSize: "20px",
+      fontFamily: "cursive",
+      overflowWrap: "break-word",
+    },
+    subtitle1: {
+      fontSize: "30px",
+      fontWeight: "500",
+      fontFamily: "fantasy",
     },
     h3: {
       fontFamily: "Ultra",
