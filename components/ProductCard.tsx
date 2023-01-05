@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Card,
   CardMedia,
@@ -7,29 +7,52 @@ import {
   CardActions,
   CardActionArea,
   IconButton,
+  Box,
 } from "@mui/material";
 import { Button } from "./Button";
 import { BsCart4, BsHeartFill } from "react-icons/bs";
+import { Router, useRouter } from "next/router";
+import { ROUTES } from "../constants/routes";
+import { createRoute } from "../utils/createRoute";
+import { ProductDetailsProps } from "../types/product.types";
 
 export interface ProductCardProps {
   productName: string;
-  id: number;
-  discription: string;
+  id: string;
+  description: string;
   price: string;
   img: string;
+  setCartItem: () => void;
 }
 
 export const ProductCard = ({
   productName,
   id,
-  discription,
+  description,
   price,
   img,
+  setCartItem,
 }: ProductCardProps) => {
+  let router = useRouter();
+  // const [cartItems, setCartItems] = useState<ProductCardProps[]>([]);
   const [state, setState] = useState({
     raised: false,
     shadow: 1,
   });
+
+  const onClickDetails = useCallback(
+    (id: string) => {
+      // console.log("Id", id);
+      // const url = createRoute(ROUTES.PRODUCT, { productId: id });
+      // router.push(url);
+    },
+    [router]
+  );
+
+  // useEffect(() => {
+  //   console.log(cartItems);
+  // }, [cartItems]);
+
   return (
     <Card
       sx={{
@@ -46,7 +69,7 @@ export const ProductCard = ({
       onMouseOut={() => setState({ raised: false, shadow: 1 })}
       raised={state.raised}
     >
-      <CardActionArea>
+      <Box onClick={() => onClickDetails(id)}>
         <CardMedia
           component="img"
           alt="green iguana"
@@ -58,11 +81,11 @@ export const ProductCard = ({
             {productName}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {discription}
+            {description}
           </Typography>
-          <Typography variant="h4">Price : {price}</Typography>
+          <Typography variant="h4">Price : $ {price}</Typography>
         </CardContent>
-      </CardActionArea>
+      </Box>
       <CardActions
         sx={{
           display: "flex",
@@ -74,6 +97,7 @@ export const ProductCard = ({
           edge="start"
           aria-label="menu"
           sx={{ mr: 2, color: "black", marginTop: "auto" }}
+          onClick={setCartItem}
         >
           <BsCart4 />
         </IconButton>

@@ -23,6 +23,9 @@ export const Button = ({
       sx={{
         fontWeight: "200",
         fontFamily: "Stint Ultra Condensed",
+        textDecoration: "none",
+        textTransform: "none",
+        letterSpacing: 0.5,
         fontSize: "24px",
         ...sx,
       }}

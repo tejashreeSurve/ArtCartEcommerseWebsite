@@ -1,28 +1,64 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { theme } from "../styles/theme";
-import products from "../product.json";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import React, { useCallback } from "react";
+import { CssBaseline, ThemeProvider, Grid } from "@mui/material";
 import { ProductCard } from "../components/ProductCard";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-import { ProductList } from "../components/ProductList";
-import ProductDetails from "../components/ProductDetails";
+import { Box } from "@mui/material";
 
-export default function Home() {
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { ROUTES } from "../constants/routes";
+import products from "../product.json";
+import Login from "./app/login";
+import { ProductDetailsProps } from "../types/product.types";
+import { useQueryClient } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemInCartBeforLogin } from "../actions/cartActionBeforLogin.actions";
+
+const Home: NextPage = () => {
+  const router = useRouter();
+  const queryClient = useQueryClient();
+  const dispatch = useDispatch();
+  const { cartArray } = useSelector((state: any) => state.beforLoginReducers);
+
+  const [cartItems, setCartItems] = useState<ProductDetailsProps[]>([]);
+
+  const handleOnCartClick = useCallback(
+    (item: ProductDetailsProps) => {
+      setCartItems((oldarray) => [...oldarray, item]);
+      dispatch(addItemInCartBeforLogin([...cartItems, item]));
+    },
+    [dispatch, cartItems]
+  );
+
+  useEffect(() => {
+    console.log("Cart Array--->", cartArray);
+  }, [cartItems, cartArray]);
   return (
     <>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
-        {/* <div className={styles.container}> */}
-        <Header />
-
-        {/* <ProductList items={products} /> */}
-        <ProductDetails />
-        <Footer />
-        {/* </div> */}
-      </ThemeProvider>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        {products?.map((item, index) => {
+          return (
+            <ProductCard
+              productName={item.productName}
+              description={item.description}
+              id={item.id}
+              price={item.price}
+              key={index}
+              img={item.img}
+              setCartItem={() => handleOnCartClick(item)}
+            />
+          );
+        })}
+      </Grid>
     </>
   );
-}
+};
+
+export default Home;

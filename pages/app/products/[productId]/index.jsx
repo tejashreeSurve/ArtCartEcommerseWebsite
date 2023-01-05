@@ -1,13 +1,13 @@
 import React from "react";
 import { Paper, Box, Grid, Typography, Rating, Button } from "@mui/material";
-import ButtonGroup from "./ButtonGroup";
-import { AddToCartButton } from "./AddToCartButton";
+import ButtonGroup from "../../../../components/ButtonGroup";
+import { AddToCartButton } from "../../../../components/AddToCartButton";
 
 export default function ProductDetails() {
   return (
     <Paper sx={{ margin: 5, flexGrow: 4 }}>
       <Grid container wrap="nowrap" spacing={2} justifyContent="center">
-        <Grid item lg={6} xs={12} sx={{ margin: "1rem" }}>
+        <Grid item xs={6} sx={{ margin: "1rem" }}>
           <Box
             component="img"
             sx={{
@@ -18,7 +18,7 @@ export default function ProductDetails() {
             src="/static/images/6.jpg"
           ></Box>
         </Grid>
-        <Grid item lg={6} xs={12} container>
+        <Grid item xs={6} container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="h2" component="div">

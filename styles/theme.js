@@ -11,6 +11,7 @@ export const palette = {
     tint: "#F2937D",
     contrastText: "#ffffff",
     scriptbox: "#faf4f8",
+    link: "#0059d6",
   },
   secondary: {
     main: "#FFFFFF",
@@ -40,6 +41,11 @@ export const theme = createTheme({
           height: 120,
           minHeight: 120,
         },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        MuiDialogTitle: {},
       },
     },
   },
@@ -74,7 +80,7 @@ export const theme = createTheme({
     h1: {
       fontWeight: "500",
       fontFamily: "fantasy",
-      background: "#f0ede6",
+      // background: "#f0ede6",
     },
     h2: {
       fontFamily: "Stint Ultra Expanded",
@@ -104,7 +110,7 @@ export const theme = createTheme({
       fontWeight: "800",
     },
     h5: {
-      fontSize: "24px",
+      fontSize: "16px",
       fontFamily: "Stint Ultra Expanded",
       fontWeight: "700",
     },
